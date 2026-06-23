@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://github.com/corbado/flutter-passkeys/releases/download/2.4.0/bundle.js"></script>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JNV Pro — Join the Waitlist</title>
+  <meta name="description" content="The professional trade journal built for serious traders. Join the early access waitlist.">
+  <meta name="theme-color" content="#0A1628">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; background-color: #0A1628; }
+    #loading {
+      position: fixed; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: #0A1628;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    #loading.hidden { opacity: 0; pointer-events: none; }
+    #loading img { width: 68px; height: 68px; margin-bottom: 28px; animation: pulse 2s ease-in-out infinite; }
+    .bar-track { width: 140px; height: 2px; background: rgba(59,123,248,0.15); border-radius: 2px; overflow: hidden; }
+    .bar-fill  { height: 100%; background: linear-gradient(90deg, #3B7BF8, #5B9BFF); animation: grow 2.2s ease-in-out forwards; }
+    .lbl { margin-top: 14px; font-family: sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(139,163,196,0.55); }
+    @keyframes pulse { 0%,100%{ opacity:1; transform:scale(1) } 50%{ opacity:.7; transform:scale(.96) } }
+    @keyframes grow  { 0%{width:0%} 50%{width:65%} 80%{width:85%} 100%{width:100%} }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <img src="icons/Icon-192.png" alt="JNV Pro">
+    <div class="bar-track"><div class="bar-fill"></div></div>
+    <p class="lbl">JNV Pro</p>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var el = document.getElementById('loading');
+      if (el) { el.classList.add('hidden'); setTimeout(function(){ el.remove(); }, 450); }
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
